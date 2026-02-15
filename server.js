@@ -11,7 +11,14 @@ import path from 'path';
 dotenv.config();
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+
+
+app.use(cors({
+  origin: 'https://rental-frontend.vercel.app', // your deployed frontend URL
+  credentials: true, // if you send cookies or auth headers
+}));
+
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
